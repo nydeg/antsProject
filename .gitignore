@@ -1,0 +1,67 @@
+### Бинарные и исполняемые файлы ###
+*.exe
+*.out
+*.app
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+*.lib
+*.obj
+*.bin
+*.ilk
+*.pdb
+*.exp
+*.suo
+
+### Папки сборки ###
+build/
+bin/
+Debug/
+Release/
+x64/
+x86/
+.vs/
+.idea/
+out/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+*.cmake
+install_manifest.txt
+compile_commands.json
+
+### Системные файлы ###
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.user
+*.ncb
+*.sdf
+*.opensdf
+
+### Зависимости ###
+deps/
+third_party/
+external/
+vendor/
+packages/
+conan.lock
+
+### Логи и документация ###
+*.log
+*.toc
+*.aux
+*.out
+*.dvi
+*.fls
+*.fdb_latexmk
+
+### IDE специфичные файлы ###
+*.code-workspace
+.vscode/
+.clangd/
+.cache/

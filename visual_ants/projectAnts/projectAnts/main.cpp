@@ -11,6 +11,8 @@
 #include "stepherd.h"
 #include "builder.h"
 #include "consts.h"
+#include "anthill.h"
+
 
 using namespace std;
 
@@ -18,7 +20,7 @@ using namespace std;
 int main()
 {
     Ant first(150, 0, nullptr);
-    Ant second(UNHEALTHY_ANT, 4, nullptr);
+    Ant second(UNHEALTHY_ANT, 9, nullptr);
     Ant* pf = &first;
     pf->getHealth();
     pf->getAge();
@@ -30,16 +32,13 @@ int main()
     second.growAge();
     cout << second << endl;
     second.getAge();
-    Ant third;
-    third.getAge();
-    third.getHealth();
-
     second.doTask();
-    first.doTask();
 
-    Ant dead(HEALTHY_ANT, 24);
-    cout << dead << endl;
-    dead.growAge();
-    cout << dead << endl;
+
+    Anthill hill(10);
+    const auto& ants = hill.getAnts();
+    for (auto& ant : ants) {
+        cout << ant << endl;
+    }
 }
 

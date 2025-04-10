@@ -3,14 +3,13 @@
 #include <iostream>
 #include <string>
 
+class Ant;
+
 class Builder : public Role {
 public:
-	virtual void work() override {
-		std::cout << "I am building" << std::endl;
-	}
+	virtual void work(Ant& ant) override;
 
 	virtual std::string getName() const override {
 		return "Builder";
 	}
-
 };

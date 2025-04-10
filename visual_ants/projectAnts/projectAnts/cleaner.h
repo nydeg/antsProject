@@ -3,11 +3,11 @@
 #include <iostream>
 #include <string>
 
+class Ant;
+
 class Cleaner : public Role {
 public:
-	virtual void work() override {
-		std::cout << "i am cleaning" << std::endl;
-	}
+	virtual void work(Ant& ant) override;
 
 	virtual std::string getName() const override {
 		return "Cleaner";

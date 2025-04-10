@@ -128,8 +128,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ant.cpp" />
+    <ClCompile Include="babysitter.cpp" />
+    <ClCompile Include="builder.cpp" />
     <ClCompile Include="builder.h" />
+    <ClCompile Include="cleaner.cpp" />
+    <ClCompile Include="collector.cpp" />
+    <ClCompile Include="dead.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="soldier.cpp" />
+    <ClCompile Include="stepherd.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ant.h" />

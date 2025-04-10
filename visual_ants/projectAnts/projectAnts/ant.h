@@ -1,5 +1,7 @@
 #pragma once
+
 #include <memory>
+#include <iostream>
 #include "role.h"
 #include "soldier.h"
 #include "babysitter.h"
@@ -28,6 +30,7 @@ public:
 	void doTask();
 
 	std::string getRole() { return role ? role->getName() : "empty"; }
+	std::string getRole() const { return role ? role->getName() : "empty"; }
 
 	void getHealth() const { std::cout << health << std::endl; }
 
@@ -39,3 +42,4 @@ public:
 };
 
 std::ostream& operator<<(std::ostream& out, Ant& ant);
+std::ostream& operator<<(std::ostream& out, const Ant& ant);

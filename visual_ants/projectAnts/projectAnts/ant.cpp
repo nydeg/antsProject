@@ -23,6 +23,7 @@ void Ant::UpdateRole()
 		} 
 		else {
 			setRole(std::make_unique<Dead>());
+			health = 0;
 		}
 	}
 }
@@ -30,12 +31,17 @@ void Ant::UpdateRole()
 void Ant::doTask()
 {
 	if (role) {
-		role->work();
+		role->work(*this);
 	}
 }
 
 std::ostream& operator<<(std::ostream& out, Ant& ant)
 {
-	out << "Ants role name is " << ant.getRole();
+	out << "Role: " << ant.getRole();
+	return out;
+}
+
+std::ostream& operator<<(std::ostream& out, const Ant& ant) {
+	out << "Role: " << ant.getRole();
 	return out;
 }

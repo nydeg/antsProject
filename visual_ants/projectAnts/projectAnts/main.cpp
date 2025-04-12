@@ -19,25 +19,19 @@ using namespace std;
 
 int main()
 {
-    Ant first(150, 0, nullptr);
-    Ant second(UNHEALTHY_ANT, 9, nullptr);
-    Ant* pf = &first;
-    pf->getHealth();
-    pf->getAge();
-    first.setRole(std::make_unique<Soldier>());
-    cout << first << endl;
-    first.setRole(std::make_unique<Babysitter>());
-    cout << first << endl;
-    cout << second << endl;
-    second.growAge();
-    cout << second << endl;
-    second.getAge();
-    second.doTask();
-
-
     Anthill hill(10);
-    const auto& ants = hill.getAnts();
-    for (auto& ant : ants) {
+    for (int i = 0; i < 10; i++) {
+        hill.birth();
+    }
+    for (Ant& ant : hill.getAnts()) {
+        cout << ant << endl;
+    }
+    hill.growAll();
+    for (Ant& ant : hill.getAnts()) {
+        ant.getAge();
+    }
+    hill.getAnts()[4].setAge(16);
+    for (Ant& ant : hill.getAnts()) {
         cout << ant << endl;
     }
 }

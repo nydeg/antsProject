@@ -1,15 +1,18 @@
 #pragma once
 
 #include <vector>
-#include "ant.h"
+#include <memory>
+
+class Ant;
 
 
 class Anthill {
 	int size;
 	std::vector<Ant> ants;
+	static int count;
 
 public:
-	Anthill(int size=100) : size(size), ants(size) {}
+	Anthill(int size=100) : size(size) {}
 
 	int getSize() { return size; }
 
@@ -18,4 +21,10 @@ public:
 
 	// Для модификации (неконстантная версия)
 	std::vector<Ant>& getAnts() { return ants; }
+
+	static int getCount() { return count; }
+
+	void birth();
+
+	void growAll();
 };

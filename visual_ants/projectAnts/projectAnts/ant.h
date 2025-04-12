@@ -22,6 +22,10 @@ private:
 public:
 	Ant(int health = HEALTHY_ANT, int age = 0, std::unique_ptr<Role> role = nullptr) : health(health), age(age), role(std::move(role)) { UpdateRole(); }
 
+	// thanks for this we can push ant objects into Anthil::ants
+	Ant(Ant&& other) noexcept = default; 
+	Ant& operator=(Ant&& other) noexcept = default;
+
 	// maybe should to be a private in future
 	void setRole(std::unique_ptr<Role> newRole) { role = std::move(newRole); }
 
@@ -37,6 +41,8 @@ public:
 	void getAge() const { std::cout << age << std::endl; }
 
 	void setHealth(int health_) { health = health_; UpdateRole(); }
+
+	void setAge(int age_) { age = age_; UpdateRole(); }
 
 	~Ant() = default;
 };

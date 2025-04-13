@@ -12,13 +12,19 @@
 #include "builder.h"
 #include "consts.h"
 #include "anthill.h"
-
+#include "draw.h"
+#include "food.h"
+#include "hay.h"
 
 using namespace std;
 
 
 int main()
 {
+    auto* food_1 = draw::create_resourses<food>(10, 10, 40);
+    auto* hay_1 = draw::create_resourses<hay>(15, 5, 100);
+    food_1->print();
+    hay_1->print();
     Anthill hill(10);
     for (int i = 0; i < 10; i++) {
         hill.birth();

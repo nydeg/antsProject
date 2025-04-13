@@ -4,6 +4,7 @@
 #include <limits>
 #include "ant.h"
 #include "event_system.h"
+#include "resourses.h"
 
 void Collector::work(Ant& ant)
 {
@@ -21,10 +22,10 @@ void Collector::update() {
 }
 
 void Collector::find_closest_res() {
-	auto new_res = event_system::getSpawns();
+	auto new_res = EventSystem::getSpawns();
 	if (new_res.empty()) return;
 	float min_dist = std::numeric_limits<float>::max();
-	resourses* closest = nullptr;
+	Resourses* closest = nullptr;
 	for (const auto& res : new_res) {
 		float dist = std::hypot(res.x - x, res.y - y);
 		if (dist < min_dist) {

@@ -4,11 +4,11 @@
 #include <string>
 
 class Ant;
-class resourses;
+class Resourses;
 
 class Collector : public Role {
 	int x, y;
-	resourses* target = nullptr;
+	Resourses* target = nullptr;
 	int collector_heap_size = 50;
 public:
 	virtual void work(Ant& ant) override;

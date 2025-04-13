@@ -128,13 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ant.cpp" />
+    <ClCompile Include="anthill.cpp" />
     <ClCompile Include="babysitter.cpp" />
     <ClCompile Include="builder.cpp" />
     <ClCompile Include="builder.h" />
     <ClCompile Include="cleaner.cpp" />
     <ClCompile Include="collector.cpp" />
     <ClCompile Include="dead.cpp" />
+    <ClCompile Include="draw.cpp" />
+    <ClCompile Include="event_system.cpp" />
+    <ClCompile Include="food.cpp" />
+    <ClCompile Include="hay.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="resourses.cpp" />
     <ClCompile Include="soldier.cpp" />
     <ClCompile Include="stepherd.cpp" />
   </ItemGroup>
@@ -146,6 +152,11 @@
     <ClInclude Include="collector.h" />
     <ClInclude Include="consts.h" />
     <ClInclude Include="dead.h" />
+    <ClInclude Include="draw.h" />
+    <ClInclude Include="event_system.h" />
+    <ClInclude Include="food.h" />
+    <ClInclude Include="hay.h" />
+    <ClInclude Include="resourses.h" />
     <ClInclude Include="role.h" />
     <ClInclude Include="soldier.h" />
     <ClInclude Include="stepherd.h" />

@@ -2,11 +2,11 @@
 #include <iostream>
 #include "event_system.h"
 
-resourses::resourses(int x, int y, int amount): x(x), y(y), weight(amount) {
-    event_system::addEvent({x, y, this});
+Resourses::Resourses(int x, int y, int amount): x(x), y(y), weight(amount) {
+    EventSystem::addEvent({x, y, this});
 }
 
-int resourses::bring_with_ant(int size_of_ant_heap) {
+int Resourses::bring_with_ant(int size_of_ant_heap) {
     if (size_of_ant_heap - this->weight >= 0) {
         this->weight = 0;
     }
@@ -16,19 +16,19 @@ int resourses::bring_with_ant(int size_of_ant_heap) {
     return this->weight;
 }
 
-int resourses::getX() const {
+int Resourses::getX() const {
     return x;
 }
 
-int resourses::getY() const {
+int Resourses::getY() const {
     return y;
 }
 
-int resourses::getWeight() const {
+int Resourses::getWeight() const {
     return weight;
 }
 
-void resourses::setPosition(int new_x, int new_y) {
+void Resourses::setPosition(int new_x, int new_y) {
     x = new_x;
     y = new_y;
 }

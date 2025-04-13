@@ -45,6 +45,24 @@
     <ClCompile Include="stepherd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="resourses.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="food.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="event_system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="anthill.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ant.h">
@@ -75,6 +93,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="anthill.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resourses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="food.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="event_system.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="draw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

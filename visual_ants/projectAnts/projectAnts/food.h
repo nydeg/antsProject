@@ -3,13 +3,13 @@
 #include "draw.h"
 #include "resourses.h"
 
-class food : public resourses{
+class Food : public Resourses{
 private:
     const int max_size_of_food = 25;
     float regrow = 0.1f;
     float curr_grow = 0.0f;
 public:
-    food(int x, int y, int weight = 25) : resourses(x, y, weight){}
+    Food(int x, int y, int weight = 25) : Resourses(x, y, weight){}
     void update() override;
     void print() override;
 

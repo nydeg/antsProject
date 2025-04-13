@@ -3,18 +3,19 @@
 //
 
 #include "event_system.h"
+#include "resourses.h"
 
-std::vector<resourse_spawn> event_system::spawns;
+std::vector<resourse_spawn> EventSystem::spawns;
 
-void event_system::addEvent(const resourse_spawn &spawn) {
+void EventSystem::addEvent(const resourse_spawn &spawn) {
     spawns.push_back(spawn);
 }
 
-std::vector<resourse_spawn> event_system::getSpawns() {
+std::vector<resourse_spawn> EventSystem::getSpawns() {
     return spawns;
 }
 
-void event_system::clearSpawns() {
+void EventSystem::clearSpawns() {
     spawns.clear();
 }
 

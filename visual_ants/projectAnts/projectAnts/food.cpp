@@ -3,7 +3,7 @@
 #include <iostream>
 #include <ostream>
 
-void food::update() {
+void Food::update() {
     curr_grow += regrow;
     if (curr_grow >= 1.0f) {
         weight = std::min(weight + static_cast<int>(curr_grow), max_size_of_food);
@@ -11,6 +11,6 @@ void food::update() {
     }
 }
 
-void food::print() {
+void Food::print() {
     std::cout << "Ya eda moi weight " << this->weight << " " << "ya na " << this->x << " " << this->y << std::endl;
 }

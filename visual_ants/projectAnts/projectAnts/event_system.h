@@ -1,15 +1,16 @@
 #ifndef EVENT_SYSTEM_H
 #define EVENT_SYSTEM_H
 #include <vector>
-#include "resourses.h"
+
+class Resourses;
 
 struct resourse_spawn {
     int x;
     int y;
-    resourses* resourse;
+    Resourses* resourse;
 };
 
-class event_system {
+class EventSystem {
 private:
     static std::vector<resourse_spawn> spawns;
 public:

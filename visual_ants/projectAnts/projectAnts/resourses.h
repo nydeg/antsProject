@@ -1,11 +1,10 @@
 #ifndef RESOURSES_H
 #define RESOURSES_H
 
-struct resourse_spawn;
 
-class resourses{
+class Resourses{
 public:
-    resourses(int x, int y, int amount);
+    Resourses(int x, int y, int amount);
 
     int bring_with_ant(int size_of_ant_heap);
     virtual void update() = 0; //?

@@ -2,7 +2,7 @@
 #include <iostream>
 #include "event_system.h"
 
-Resourses::Resourses(int x, int y, int amount): x(x), y(y), weight(amount) {
+Resourses::Resourses(float x, float y, int amount): x(x), y(y), weight(amount) {
     EventSystem::addEvent({x, y, this});
 }
 

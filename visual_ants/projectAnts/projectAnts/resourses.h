@@ -4,7 +4,7 @@
 
 class Resourses{
 public:
-    Resourses(int x, int y, int amount);
+    Resourses(float x, float y, int amount);
 
     int bring_with_ant(int size_of_ant_heap);
     virtual void update() = 0; //?

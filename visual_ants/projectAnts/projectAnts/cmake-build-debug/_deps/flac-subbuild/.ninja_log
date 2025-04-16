@@ -1,0 +1,37 @@
+# ninja log v6
+1	35	7665266544719105	flac-populate-prefix/src/flac-populate-stamp/flac-populate-mkdir	624c283e5dcf561f
+4	107	7665267265107338	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	b8baf05c618a57e4
+348	420	7665267269213182	flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	fe179b0d19686593
+1	35	7665266544719105	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-mkdir	624c283e5dcf561f
+107	159	7665267266609670	flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	f5ff6f03d32e6338
+35	3538	7665266579727639	flac-populate-prefix/src/flac-populate-stamp/flac-populate-download	785eaa87377c0e7c
+218	266	7665267267658767	flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	bee2df4caa1af019
+107	159	7665267266609670	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	f5ff6f03d32e6338
+35	3538	7665266579727639	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-download	785eaa87377c0e7c
+4	107	7665267265107338	flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	b8baf05c618a57e4
+159	218	7665267267165595	flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	b742d3ef04656239
+159	218	7665267267165595	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	b742d3ef04656239
+218	266	7665267267658767	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	bee2df4caa1af019
+266	302	7665267268049837	flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	cfe65e071fed55d2
+266	302	7665267268049837	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	cfe65e071fed55d2
+302	347	7665267268464326	flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	310ac5f332a160fb
+302	347	7665267268464326	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	310ac5f332a160fb
+348	420	7665267269213182	CMakeFiles/flac-populate-complete	fe179b0d19686593
+348	420	7665267269213182	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/CMakeFiles/flac-populate-complete	fe179b0d19686593
+348	420	7665267269213182	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	fe179b0d19686593
+3	109	7665268717500500	flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	b8baf05c618a57e4
+3	109	7665268717500500	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	b8baf05c618a57e4
+109	147	7665268718887056	flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	f5ff6f03d32e6338
+109	147	7665268718887056	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	f5ff6f03d32e6338
+147	186	7665268719268998	flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	b742d3ef04656239
+147	186	7665268719268998	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	b742d3ef04656239
+187	226	7665268719675725	flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	bee2df4caa1af019
+187	226	7665268719675725	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	bee2df4caa1af019
+226	265	7665268720075001	flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	cfe65e071fed55d2
+226	265	7665268720075001	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	cfe65e071fed55d2
+265	296	7665268720394565	flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	310ac5f332a160fb
+265	296	7665268720394565	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	310ac5f332a160fb
+296	337	7665268720814836	CMakeFiles/flac-populate-complete	fe179b0d19686593
+296	337	7665268720814836	flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	fe179b0d19686593
+296	337	7665268720814836	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/CMakeFiles/flac-populate-complete	fe179b0d19686593
+296	337	7665268720814836	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	fe179b0d19686593

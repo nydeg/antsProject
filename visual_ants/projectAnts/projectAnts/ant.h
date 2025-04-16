@@ -11,16 +11,69 @@
 #include "builder.h"
 #include "dead.h"
 #include "consts.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/Window.hpp>
+#include <vector>
+using namespace std;
+#define SIZE_OF_TILE 40.f
+
 
 class Ant {
 private:
+	//sfml
+	Texture antTexture;
+	RectangleShape antShape;
+	Vector2f position;
+	vector<Vector2f> path;
+	float speed = 60.0f;
+	Clock stuckTimer;
+	float stuckTime = 0;
+	Vector2f lastPosition;
+	bool isWalkable(int gridX, int gridY) const;
+	bool checkAntCollision(const Vector2f& pos) const;
+	vector<Vector2f> findPathAStar(const Vector2i& start, const Vector2i& end);
+	void tryFindAlternativePath(const Vector2f& target);
+	float distance(const Vector2f& a, const Vector2f& b) const;
+
+	//usual
 	std::unique_ptr<Role> role;
 	int health, age;
-
 	void UpdateRole();
 
 public:
-	Ant(int health = HEALTHY_ANT, int age = 0, std::unique_ptr<Role> role = nullptr) : health(health), age(age), role(std::move(role)) { UpdateRole(); }
+	//sfml
+	void setTarget(const Vector2f& target);
+	void update(float deltaTime);
+	void draw(RenderWindow& window);
+
+	//usual
+	Ant(int health = HEALTHY_ANT, int age = 0, std::unique_ptr<Role> role = nullptr) : health(health), age(age), role(std::move(role)) {
+		if (!antTexture.loadFromFile("ant.png")) {
+			cerr << "Failed to load ant texture" << endl;
+		}
+		antShape.setSize(Vector2f(40, 25));
+		antShape.setTexture(&antTexture);
+		antShape.setOrigin({20.f, 12.5f});
+
+		// Находим безопасную стартовую позицию
+		for (int y = 1; y < MAIN_FIELD-1; ++y) {
+			for (int x = 1; x < MAIN_FIELD-1; ++x) {
+				if (maze[y][x] == 0) {
+					position = Vector2f(
+						x * SIZE_OF_TILE - 30 + SIZE_OF_TILE/2,
+						y * SIZE_OF_TILE - 15 + SIZE_OF_TILE/2
+					);
+					lastPosition = position;
+					return;
+				}
+			}
+		}
+		position = Vector2f(50, 25);
+		lastPosition = position;
+		UpdateRole();
+	}
 
 	// thanks for this we can push ant objects into Anthil::ants
 	Ant(Ant&& other) noexcept = default; 

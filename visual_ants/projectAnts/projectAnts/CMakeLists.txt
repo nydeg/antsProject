@@ -1,7 +1,17 @@
-cmake_minimum_required(VERSION 3.30)
-project(projectAnts)
+cmake_minimum_required(VERSION 3.28)
+project(projectAnts LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+
+include(FetchContent)
+FetchContent_Declare(SFML
+        GIT_REPOSITORY https://github.com/SFML/SFML.git
+        GIT_TAG 3.0.0
+        GIT_SHALLOW ON
+        EXCLUDE_FROM_ALL
+        SYSTEM)
+FetchContent_MakeAvailable(SFML)
 
 add_executable(projectAnts main.cpp
 ant.cpp
@@ -12,16 +22,12 @@ collector.cpp
 dead.cpp
 soldier.cpp
 stepherd.cpp
-        Game.cpp
-        Game.h
-        anhill.cpp
+        anthill.cpp
         food.cpp
-        food.h
         resourses.cpp
-        resourses.h
         hay.cpp
-        hay.h
         draw.cpp
-        draw.h
-        event_system.cpp
-        event_system.h)
+        event_system.cpp)
+
+target_compile_features(projectAnts PRIVATE cxx_std_17)
+target_link_libraries(projectAnts PRIVATE SFML::Graphics SFML::Audio SFML::Window)

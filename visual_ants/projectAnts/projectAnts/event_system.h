@@ -5,8 +5,8 @@
 class Resourses;
 
 struct resourse_spawn {
-    int x;
-    int y;
+    float x;
+    float y;
     Resourses* resourse;
 };
 

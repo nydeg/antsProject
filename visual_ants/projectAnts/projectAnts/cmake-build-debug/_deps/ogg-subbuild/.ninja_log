@@ -1,0 +1,37 @@
+# ninja log v6
+2	58	7665266474185946	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-mkdir	8c12eba1c2755b47
+58	2305	7665266496644429	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-download	1a156985ff72d7d3
+2	58	7665266474185946	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-mkdir	8c12eba1c2755b47
+5	106	7665267258919092	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	6b260d18c1c58020
+221	256	7665267261382111	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	3f3d07e1741d2383
+186	221	7665267261020398	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	835380670bbab9ed
+58	2305	7665266496644429	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-download	1a156985ff72d7d3
+5	106	7665267258919092	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	6b260d18c1c58020
+293	354	7665267262343260	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	6c640289c12cfa3f
+107	153	7665267260347342	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	dd3abdc6fefb864a
+107	153	7665267260347342	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	dd3abdc6fefb864a
+153	186	7665267260660737	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	6d909227d29a7a71
+153	186	7665267260660737	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	6d909227d29a7a71
+186	221	7665267261020398	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	835380670bbab9ed
+221	256	7665267261382111	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	3f3d07e1741d2383
+256	293	7665267261746758	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	bbdaa9e9f9267874
+256	293	7665267261746758	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	bbdaa9e9f9267874
+293	354	7665267262343260	CMakeFiles/ogg-populate-complete	6c640289c12cfa3f
+293	354	7665267262343260	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/CMakeFiles/ogg-populate-complete	6c640289c12cfa3f
+293	354	7665267262343260	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	6c640289c12cfa3f
+4	89	7665268712403362	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	6b260d18c1c58020
+4	89	7665268712403362	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	6b260d18c1c58020
+89	124	7665268713564783	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	dd3abdc6fefb864a
+89	124	7665268713564783	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	dd3abdc6fefb864a
+125	158	7665268713903657	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	6d909227d29a7a71
+125	158	7665268713903657	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	6d909227d29a7a71
+159	194	7665268714245425	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	835380670bbab9ed
+159	194	7665268714245425	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	835380670bbab9ed
+194	231	7665268714621675	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	3f3d07e1741d2383
+194	231	7665268714621675	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	3f3d07e1741d2383
+231	266	7665268714976618	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	bbdaa9e9f9267874
+231	266	7665268714976618	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	bbdaa9e9f9267874
+267	316	7665268715466375	CMakeFiles/ogg-populate-complete	6c640289c12cfa3f
+267	316	7665268715466375	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	6c640289c12cfa3f
+267	316	7665268715466375	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/CMakeFiles/ogg-populate-complete	6c640289c12cfa3f
+267	316	7665268715466375	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	6c640289c12cfa3f

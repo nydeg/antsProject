@@ -1,0 +1,37 @@
+# ninja log v6
+2	41	7665267076959085	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	7dbf17ae013fe5e7
+2	41	7665267076959085	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	7dbf17ae013fe5e7
+17196	17294	7665267248570836	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	469e82f1cae62ac3
+41	17196	7665267248508695	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	6adaa246c391f03b
+17196	17294	7665267248570836	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	469e82f1cae62ac3
+17358	17386	7665267250433938	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	ec25eada773abd83
+41	17196	7665267248508695	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	6adaa246c391f03b
+17294	17327	7665267249837496	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	f6bb5a7a7f3c1131
+17294	17327	7665267249837496	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	f6bb5a7a7f3c1131
+17327	17358	7665267250161335	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	d0bd5a4f66f200
+17327	17358	7665267250161335	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	d0bd5a4f66f200
+17358	17386	7665267250433938	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	ec25eada773abd83
+17443	17481	7665267251382036	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	56183e79e58679c8
+17386	17414	7665267250710605	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	7513c36edf156fc7
+17386	17414	7665267250710605	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	7513c36edf156fc7
+17415	17443	7665267251012542	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	5aa17c37471e1c77
+17415	17443	7665267251012542	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	5aa17c37471e1c77
+17443	17481	7665267251382036	CMakeFiles/sfml-populate-complete	56183e79e58679c8
+17443	17481	7665267251382036	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	56183e79e58679c8
+17443	17481	7665267251382036	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	56183e79e58679c8
+3	75	7665268701771898	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	469e82f1cae62ac3
+3	75	7665268701771898	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	469e82f1cae62ac3
+75	102	7665268702724452	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	f6bb5a7a7f3c1131
+75	102	7665268702724452	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	f6bb5a7a7f3c1131
+102	129	7665268702995831	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	d0bd5a4f66f200
+102	129	7665268702995831	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	d0bd5a4f66f200
+129	158	7665268703285974	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	ec25eada773abd83
+129	158	7665268703285974	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	ec25eada773abd83
+158	187	7665268703566847	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	7513c36edf156fc7
+158	187	7665268703566847	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	7513c36edf156fc7
+187	215	7665268703855618	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	5aa17c37471e1c77
+187	215	7665268703855618	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	5aa17c37471e1c77
+215	255	7665268704257202	CMakeFiles/sfml-populate-complete	56183e79e58679c8
+215	255	7665268704257202	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	56183e79e58679c8
+215	255	7665268704257202	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	56183e79e58679c8
+215	255	7665268704257202	C:/Users/Admin/Desktop/ants repo/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	56183e79e58679c8

@@ -3,6 +3,7 @@
 #include <cmath>
 #include <queue>
 #define SIZE_OF_TILE 40.f
+#include "food.h"
 
 struct Node {
 	int x, y;
@@ -180,26 +181,35 @@ void Ant::setTarget(const Vector2f &target) {
 	stuckTimer.restart();
 }
 
-void Ant::update(float deltaTime) {
+void Ant::update(float deltaTime, Food& food) {
 	if (path.empty()) return;
+	if (!carryingFood){
 
-	Vector2f targetWorld = path.front();
+	sf::Vector2f targetWorld = path.front();
 	float distanceToTarget = distance(position, targetWorld);
 
 	if (distanceToTarget < speed * deltaTime) {
 		position = targetWorld; // Достигли целевого тайла
 		path.erase(path.begin());
-	} else {
-		Vector2f direction = (targetWorld - position) / distanceToTarget;
-		Vector2f newPosition = position + direction * speed * deltaTime;
 
-		Vector2i grid = worldToGrid(newPosition);
-		if (isWalkable(grid.x, grid.y)) {
-			position = newPosition;
+		// Проверяем, достиг ли муравей еды
+		if (food.isExists() && distance(position, food.getPosition()) < SIZE_OF_TILE / 2) {
+			if (food.getWeight() <= 10) {
+				carryingFood = true;
+				food.consume();  // Убираем еду с поля
+				std::cout << "Food collected!" << std::endl;
+			}
+			else {
+				std::cout << "The food is too heavy!" << std::endl;
+			}
 		}
+	} else {
+		sf::Vector2f direction = (targetWorld - position) / distanceToTarget;
+		position += direction * speed * deltaTime;
 	}
 
 	antShape.setPosition(position);
+	}
 }
 
 void Ant::draw(RenderWindow &window) {

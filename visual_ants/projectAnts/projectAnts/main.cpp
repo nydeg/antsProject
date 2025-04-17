@@ -33,6 +33,7 @@ int main()
     Ant ant(HEALTHY_ANT, 0,  nullptr);
     Food food;
     Clock clock;
+    Clock spawnClock;           // Таймер для спавна еды
 
     Font font("rubik-extrabold.ttf");
 
@@ -82,15 +83,13 @@ int main()
         while (const std::optional<Event> event = window.pollEvent()) {
             if (event->is<Event::Closed>())
                 window.close();
-            if (event->is<Event::MouseButtonPressed>() && Mouse::isButtonPressed(Mouse::Button::Left)) {
-                sf::Vector2i mousePos;
-                mousePos = Mouse::getPosition(window);
-                food.spawn(Vector2f(mousePos.x, mousePos.y));
-                if (food.isExists()) ant.setTarget(food.getPosition());
-                ant.setTarget(food.getPosition());
-            }
         }
-        ant.update(deltaTime);
+        ant.update(deltaTime, food);
+        if (spawnClock.getElapsedTime().asSeconds() >= 5.f) {
+            food.spawn(maze);  // Спавн еды в случайном месте
+            ant.setTarget(food.getPosition());
+            spawnClock.restart();   // Сброс таймера
+        }
 
         window.clear(Color(86, 48, 33));
         window.draw(field_main);
@@ -117,4 +116,3 @@ int main()
 
     return 0;
 }
-

@@ -1,5 +1,6 @@
 #ifndef FOOD_H
 #define FOOD_H
+#include "consts.h"
 #include "draw.h"
 #include "resourses.h"
 #include "SFML/Graphics/CircleShape.hpp"
@@ -20,14 +21,16 @@ private:
     sf::CircleShape shape;
     sf::Vector2f position;
     bool exists = false;
+
 public:
     //sfml
     Food();
-    void spawn(const sf::Vector2f& mousePos);
+    void spawn(const int maze[MAIN_FIELD][MAIN_FIELD]);
     void draw(sf::RenderWindow& window);
     sf::Vector2f getPosition() const;
-
+    void consume();
     bool isExists() const;
+    int getWeight() const { return weight; }
 
     //usual
     Food(int x, int y, int weight = 25) : Resourses(x, y, weight){}
@@ -35,4 +38,4 @@ public:
     void print() override;
 
 };
-#endif //FOOD_H
+#endif FOOD_H

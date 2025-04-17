@@ -16,6 +16,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Window.hpp>
 #include <vector>
+class Food;
 using namespace std;
 #define SIZE_OF_TILE 40.f
 
@@ -27,7 +28,7 @@ private:
 	RectangleShape antShape;
 	Vector2f position;
 	vector<Vector2f> path;
-	float speed = 60.0f;
+	float speed = 200.0f;
 	Clock stuckTimer;
 	float stuckTime = 0;
 	Vector2f lastPosition;
@@ -37,7 +38,10 @@ private:
 	void tryFindAlternativePath(const Vector2f& target);
 	float distance(const Vector2f& a, const Vector2f& b) const;
 
+
 	//usual
+	int carryingCapacity = 10;
+	bool carryingFood = false;
 	std::unique_ptr<Role> role;
 	int health, age;
 	void UpdateRole();
@@ -45,8 +49,9 @@ private:
 public:
 	//sfml
 	void setTarget(const Vector2f& target);
-	void update(float deltaTime);
+	void update(float deltaTime, Food& food);
 	void draw(RenderWindow& window);
+	void interactWithFood(Food& food);
 
 	//usual
 	Ant(int health = HEALTHY_ANT, int age = 0, std::unique_ptr<Role> role = nullptr) : health(health), age(age), role(std::move(role)) {

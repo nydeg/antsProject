@@ -25,105 +25,96 @@ namespace std {
 	};
 }
 
+Vector2i worldToGrid(const Vector2f& worldPosition) {
+	int gridX = static_cast<int>((worldPosition.x + 30) / SIZE_OF_TILE);
+	int gridY = static_cast<int>((worldPosition.y + 15) / SIZE_OF_TILE);
+	return {gridX, gridY};
+}
+
+Vector2f gridToWorld(int gridX, int gridY) {
+	float worldX = gridX * SIZE_OF_TILE - 30 + SIZE_OF_TILE / 2;
+	float worldY = gridY * SIZE_OF_TILE - 15 + SIZE_OF_TILE / 2;
+	return {worldX, worldY};
+}
+
 
 bool Ant::isWalkable(int gridX, int gridY) const {
 	return (gridX >= 0 && gridX < MAIN_FIELD &&
-				gridY >= 0 && gridY < MAIN_FIELD &&
-				maze[gridY][gridX] == 0);
+			gridY >= 0 && gridY < MAIN_FIELD &&
+			maze[gridY][gridX] == 0);
 }
 
 bool Ant::checkAntCollision(const Vector2f &pos) const {
-	const float halfWidth = antShape.getSize().x / 2;
-	const float halfHeight = antShape.getSize().y / 2;
+	int gridX = static_cast<int>((pos.x + 30) / SIZE_OF_TILE);
+	int gridY = static_cast<int>((pos.y + 15) / SIZE_OF_TILE);
 
-	Vector2f points[5] = {
-		{pos.x - halfWidth, pos.y - halfHeight},
-		{pos.x + halfWidth, pos.y - halfHeight},
-		{pos.x + halfWidth, pos.y + halfHeight},
-		{pos.x - halfWidth, pos.y + halfHeight},
-		{pos.x, pos.y}
-	};
-
-	for (const auto& point : points) {
-		int gridX = static_cast<int>((point.x + 30) / SIZE_OF_TILE);
-		int gridY = static_cast<int>((point.y + 15) / SIZE_OF_TILE);
-
-		if (!isWalkable(gridX, gridY)) {
-			return true;
-		}
-	}
-	return false;
+	return !isWalkable(gridX, gridY);
 }
 
 vector<Vector2f> Ant::findPathAStar(const Vector2i &start, const Vector2i &end) {
 	vector<Vector2f> result;
-        if (!isWalkable(start.x, start.y) || !isWalkable(end.x, end.y)) {
-            return result;
-        }
 
-        auto cmp = [](Node* left, Node* right) { return left->f > right->f; };
-        priority_queue<Node*, vector<Node*>, decltype(cmp)> openList(cmp);
-        unordered_map<Node, Node*> allNodes;
-
-        Node* startNode = new Node(start.x, start.y);
-        openList.push(startNode);
-        allNodes[*startNode] = startNode;
-
-        while (!openList.empty()) {
-            Node* current = openList.top();
-            openList.pop();
-
-            if (current->x == end.x && current->y == end.y) {
-                while (current != nullptr) {
-                    result.push_back(Vector2f(
-                        current->x * SIZE_OF_TILE - 30 + SIZE_OF_TILE/2,
-                        current->y * SIZE_OF_TILE - 15 + SIZE_OF_TILE/2
-                    ));
-                    current = current->parent;
-                }
-                reverse(result.begin(), result.end());
-                break;
-            }
-
-            // Проверяем 8 направлений (для диагонального движения)
-            const int dx[] = {-1, 1, 0, 0, -1, -1, 1, 1};
-            const int dy[] = {0, 0, -1, 1, -1, 1, -1, 1};
-
-            for (int i = 0; i < 8; ++i) {
-                int nx = current->x + dx[i];
-                int ny = current->y + dy[i];
-
-                if (!isWalkable(nx, ny)) continue;
-
-                // Для диагоналей проверяем, чтобы соседние клетки тоже были проходимы
-                if (i >= 4) { // диагональные направления
-                    if (!isWalkable(current->x + dx[i], current->y) ||
-                        !isWalkable(current->x, current->y + dy[i])) {
-                        continue;
-                    }
-                }
-
-                Node neighbor(nx, ny);
-                float newG = current->g + (i < 4 ? 1.0f : 1.414f); // Стоимость диагонали больше
-
-                if (allNodes.find(neighbor) == allNodes.end() || newG < allNodes[neighbor]->g) {
-                    Node* newNode = new Node(nx, ny);
-                    newNode->g = newG;
-                    newNode->h = sqrt(pow(nx - end.x, 2) + pow(ny - end.y, 2)); // Евклидово расстояние
-                    newNode->f = newNode->g + newNode->h;
-                    newNode->parent = current;
-
-                    openList.push(newNode);
-                    allNodes[neighbor] = newNode;
-                }
-            }
-        }
-
-        for (auto& pair : allNodes) {
-            delete pair.second;
-        }
-
+    if (!isWalkable(start.x, start.y) || !isWalkable(end.x, end.y)) {
+        cerr << "Start or end position is not walkable.\n";
         return result;
+    }
+
+    auto cmp = [](Node* left, Node* right) { return left->f > right->f; };
+    priority_queue<Node*, vector<Node*>, decltype(cmp)> openList(cmp);
+    unordered_map<int, Node*> allNodes;
+
+    auto key = [](int x, int y) { return y * MAIN_FIELD + x; };
+
+    Node* startNode = new Node(start.x, start.y);
+    startNode->g = 0;
+    startNode->h = abs(end.x - start.x) + abs(end.y - start.y);
+    startNode->f = startNode->g + startNode->h;
+    openList.push(startNode);
+    allNodes[key(start.x, start.y)] = startNode;
+
+    while (!openList.empty()) {
+        Node* current = openList.top();
+        openList.pop();
+
+        if (current->x == end.x && current->y == end.y) {
+            while (current != nullptr) {
+                result.push_back(gridToWorld(current->x, current->y));
+                current = current->parent;
+            }
+            reverse(result.begin(), result.end());
+            break;
+        }
+
+        const int dx[] = {-1, 1, 0, 0};
+        const int dy[] = {0, 0, -1, 1};
+
+        for (int i = 0; i < 4; ++i) {
+            int nx = current->x + dx[i];
+            int ny = current->y + dy[i];
+
+            if (!isWalkable(nx, ny)) continue;
+
+            int neighborKey = key(nx, ny);
+            float newG = current->g + 1;
+
+            if (allNodes.find(neighborKey) == allNodes.end() || newG < allNodes[neighborKey]->g) {
+                Node* neighborNode = new Node(nx, ny);
+                neighborNode->g = newG;
+                neighborNode->h = abs(nx - end.x) + abs(ny - end.y);
+                neighborNode->f = neighborNode->g + neighborNode->h;
+                neighborNode->parent = current;
+
+                openList.push(neighborNode);
+                allNodes[neighborKey] = neighborNode;
+            }
+        }
+    }
+
+    for (auto& pair : allNodes) {
+        delete pair.second;
+    }
+
+    return result;
 }
 
 void Ant::tryFindAlternativePath(const Vector2f &target) {
@@ -192,46 +183,22 @@ void Ant::setTarget(const Vector2f &target) {
 void Ant::update(float deltaTime) {
 	if (path.empty()) return;
 
-	// Проверяем, не застрял ли муравей
-	if (distance(position, lastPosition) < 0.1f) {
-		stuckTime += deltaTime;
-		if (stuckTime > 1.0f) { // Если застрял более 1 секунды
-			tryFindAlternativePath(path.back());
-			stuckTime = 0;
-		}
-	} else {
-		stuckTime = 0;
-	}
-	lastPosition = position;
+	Vector2f targetWorld = path.front();
+	float distanceToTarget = distance(position, targetWorld);
 
-	Vector2f target = path.back();
-	Vector2f direction = target - position;
-	float distance = sqrt(direction.x*direction.x + direction.y*direction.y);
-
-	if (distance < 5.f) {
-		path.pop_back();
+	if (distanceToTarget < speed * deltaTime) {
+		position = targetWorld; // Достигли целевого тайла
+		path.erase(path.begin());
 	} else {
-		direction /= distance;
+		Vector2f direction = (targetWorld - position) / distanceToTarget;
 		Vector2f newPosition = position + direction * speed * deltaTime;
 
-		if (!checkAntCollision(newPosition)) {
+		Vector2i grid = worldToGrid(newPosition);
+		if (isWalkable(grid.x, grid.y)) {
 			position = newPosition;
-		} else {
-			// Пробуем двигаться по касательной к стене
-			Vector2f tangent(-direction.y, direction.x);
-			Vector2f tryPosition1 = position + tangent * speed * deltaTime;
-			Vector2f tryPosition2 = position - tangent * speed * deltaTime;
-
-			if (!checkAntCollision(tryPosition1)) {
-				position = tryPosition1;
-			} else if (!checkAntCollision(tryPosition2)) {
-				position = tryPosition2;
-			} else {
-				// Если не получается - ищем новый путь
-				tryFindAlternativePath(target);
-			}
 		}
 	}
+
 	antShape.setPosition(position);
 }
 

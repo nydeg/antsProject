@@ -33,9 +33,9 @@ public:
     int getWeight() const { return weight; }
 
     //usual
-    Food(int x, int y, int weight = 25) : Resourses(x, y, weight){}
+    Food(int x, int y, int weight = 10) : Resourses(x, y, weight){}
     void update() override;
     void print() override;
 
 };
-#endif FOOD_H
+#endif //FOOD_H

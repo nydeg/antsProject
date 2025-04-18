@@ -29,7 +29,9 @@ stepherd.cpp
         draw.cpp
         event_system.cpp
         storage.cpp
-        storage.h)
+        storage.h
+        baby.cpp
+        baby.h)
 
 target_compile_features(projectAnts PRIVATE cxx_std_17)
 target_link_libraries(projectAnts PRIVATE SFML::Graphics SFML::Audio SFML::Window)

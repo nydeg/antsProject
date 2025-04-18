@@ -3,7 +3,9 @@
 #include <cmath>
 #include <queue>
 #define SIZE_OF_TILE 40.f
+#include "baby.h"
 #include "food.h"
+#include "storage.h"
 
 struct Node {
 	int x, y;
@@ -141,7 +143,10 @@ float Ant::distance(const Vector2f &a, const Vector2f &b) const {
 void Ant::UpdateRole()
 {
 	if (age > 0) {
-		if (age < 5) {
+		if (0 < age < 2) {
+			setRole(std::make_unique<Baby>());
+		}
+		else if (2 < age < 5) {
 			setRole(std::make_unique<Babysitter>());
 		}
 		else if (age >= 5 && age < 10 && health > UNHEALTHY_ANT) {
@@ -167,53 +172,112 @@ void Ant::UpdateRole()
 }
 
 void Ant::setTarget(const Vector2f &target) {
-	Vector2i startGrid(
-				static_cast<int>((position.x + 30 - SIZE_OF_TILE/2) / SIZE_OF_TILE),
-				static_cast<int>((position.y + 15 - SIZE_OF_TILE/2) / SIZE_OF_TILE)
-			);
+	Vector2i startGrid = worldToGrid(position);
+	Vector2i endGrid = worldToGrid(target);
 
-	Vector2i endGrid(
-		static_cast<int>((target.x + 30 - SIZE_OF_TILE/2) / SIZE_OF_TILE),
-		static_cast<int>((target.y + 15 - SIZE_OF_TILE/2) / SIZE_OF_TILE)
-	);
-
+	// Генерация пути с использованием A*
 	path = findPathAStar(startGrid, endGrid);
-	stuckTimer.restart();
+
+	if (path.empty()) {
+		std::cerr << "Unable to find a path to the target.\n";
+	}
 }
+
+Vector2f storagePosition = {60.f, 60.f};
 
 void Ant::update(float deltaTime, Food& food) {
-	if (path.empty()) return;
-	if (!carryingFood){
+    // Если путь пуст, необходимо задать новую цель
+    if (path.empty()) {
+        if (carryingFood) {
+            // Если муравей несет еду, цель — склад
+            setTarget(storagePosition);
+        } else if (food.isExists()) {
+            // Если еда существует и муравей не несет еду, цель — еда
+            setTarget(food.getPosition());
+        }
+        return; // Прерываем выполнение, так как путь будет сгенерирован
+    }
 
-	sf::Vector2f targetWorld = path.front();
-	float distanceToTarget = distance(position, targetWorld);
+    // Целевая точка пути
+    sf::Vector2f targetWorld = path.front();
+    float distanceToTarget = distance(position, targetWorld);
 
-	if (distanceToTarget < speed * deltaTime) {
-		position = targetWorld; // Достигли целевого тайла
-		path.erase(path.begin());
+    if (distanceToTarget < speed * deltaTime) {
+        // Достигли текущей точки пути
+        position = targetWorld;
+        path.erase(path.begin());
 
-		// Проверяем, достиг ли муравей еды
-		if (food.isExists() && distance(position, food.getPosition()) < SIZE_OF_TILE / 2) {
-			if (food.getWeight() <= 10) {
-				carryingFood = true;
-				food.consume();  // Убираем еду с поля
-				std::cout << "Food collected!" << std::endl;
-			}
-			else {
-				std::cout << "The food is too heavy!" << std::endl;
-			}
-		}
-	} else {
-		sf::Vector2f direction = (targetWorld - position) / distanceToTarget;
-		position += direction * speed * deltaTime;
-	}
+        if (carryingFood) {
+            // Проверяем, достиг ли склада
+            if (distance(position, storagePosition) < SIZE_OF_TILE / 2) {
+                std::cout << "Food delivered to storage!" << std::endl;
 
-	antShape.setPosition(position);
-	}
+                // После доставки еды ищем новую цель — еду
+                if (food.isExists()) {
+                    setTarget(food.getPosition());
+                }
+            }
+        } else {
+            // Если не несет еду и достиг еды
+            if (food.isExists() && distance(position, food.getPosition()) < SIZE_OF_TILE / 2) {
+                if (food.getWeight() <= carryingCapacity) {
+                	collectFood(food);
+                    std::cout << "Food collected!" << std::endl;
+
+                    // Устанавливаем цель доставки еды к складу
+                    setTarget(storagePosition);
+                } else {
+                    std::cout << "The food is too heavy!" << std::endl;
+                }
+            }
+        }
+    } else {
+        // Двигаемся к следующей точке пути
+        sf::Vector2f direction = (targetWorld - position) / distanceToTarget;
+        position += direction * speed * deltaTime;
+    }
+
+    // Обновляем положение муравья
+    antShape.setPosition(position);
 }
+
+// Геттер для координаты X
+float Ant::getPositionX() const {
+	return position.x;
+}
+
+// Геттер для координаты Y
+float Ant::getPositionY() const {
+	return position.y;
+}
+
+// Метод для получения полной позиции (вектор)
+sf::Vector2f Ant::getPosition() const {
+	return position;
+}
+
+
 
 void Ant::draw(RenderWindow &window) {
 	window.draw(antShape);
+}
+
+void Ant::deliverToStorage(Storage &storage, Food &food) {
+		// Если муравей несет еду и он рядом со складом
+	storage.addFood(food, carriedFoodWeight);
+	carryingFood = false;
+		carriedFoodWeight = 0;
+		std::cout << "Food delivered! Current storage: "
+				<< storage.getCurrentCapacity() << "/"
+				<< storage.getMaxCapacity() << std::endl;
+		storage.updateAppearance("food");
+	}
+
+void Ant::doTask(const sf::FloatRect& bounds = sf::FloatRect({-FLT_MAX, -FLT_MAX}, {FLT_MAX * 2, FLT_MAX * 2})) {
+	if (role) {
+		role->work(*this, bounds);
+	}
+	antShape.setPosition(position);
 }
 
 
@@ -223,6 +287,7 @@ void Ant::doTask()
 		role->work(*this);
 	}
 }
+
 
 std::ostream& operator<<(std::ostream& out, Ant& ant)
 {

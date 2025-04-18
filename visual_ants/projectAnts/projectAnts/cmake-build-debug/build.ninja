@@ -177,6 +177,14 @@ build CMakeFiles/projectAnts.dir/storage.cpp.obj: CXX_COMPILER__projectAnts_unsc
   OBJECT_DIR = CMakeFiles\projectAnts.dir
   OBJECT_FILE_DIR = CMakeFiles\projectAnts.dir
 
+build CMakeFiles/projectAnts.dir/baby.cpp.obj: CXX_COMPILER__projectAnts_unscanned_Debug C$:/Users/Admin/Desktop/ants$ git/antsProject/visual_ants/projectAnts/projectAnts/baby.cpp || cmake_object_order_depends_target_projectAnts
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\projectAnts.dir\baby.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem "C:/Users/Admin/Desktop/ants git/antsProject/visual_ants/projectAnts/projectAnts/cmake-build-debug/_deps/sfml-src/include"
+  OBJECT_DIR = CMakeFiles\projectAnts.dir
+  OBJECT_FILE_DIR = CMakeFiles\projectAnts.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target projectAnts
@@ -185,7 +193,7 @@ build CMakeFiles/projectAnts.dir/storage.cpp.obj: CXX_COMPILER__projectAnts_unsc
 #############################################
 # Link the executable projectAnts.exe
 
-build projectAnts.exe: CXX_EXECUTABLE_LINKER__projectAnts_Debug CMakeFiles/projectAnts.dir/main.cpp.obj CMakeFiles/projectAnts.dir/ant.cpp.obj CMakeFiles/projectAnts.dir/babysitter.cpp.obj CMakeFiles/projectAnts.dir/builder.cpp.obj CMakeFiles/projectAnts.dir/cleaner.cpp.obj CMakeFiles/projectAnts.dir/collector.cpp.obj CMakeFiles/projectAnts.dir/dead.cpp.obj CMakeFiles/projectAnts.dir/soldier.cpp.obj CMakeFiles/projectAnts.dir/stepherd.cpp.obj CMakeFiles/projectAnts.dir/anthill.cpp.obj CMakeFiles/projectAnts.dir/food.cpp.obj CMakeFiles/projectAnts.dir/resourses.cpp.obj CMakeFiles/projectAnts.dir/hay.cpp.obj CMakeFiles/projectAnts.dir/draw.cpp.obj CMakeFiles/projectAnts.dir/event_system.cpp.obj CMakeFiles/projectAnts.dir/storage.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-audio-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libfreetyped.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libvorbisfiled.a _deps/sfml-build/lib/libvorbisencd.a _deps/sfml-build/lib/libvorbisd.a _deps/sfml-build/lib/libFLACd.a _deps/sfml-build/lib/liboggd.a || _deps/sfml-build/lib/libFLACd.a _deps/sfml-build/lib/libfreetyped.a _deps/sfml-build/lib/liboggd.a _deps/sfml-build/lib/libsfml-audio-s-d.a _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libvorbisd.a _deps/sfml-build/lib/libvorbisencd.a _deps/sfml-build/lib/libvorbisfiled.a
+build projectAnts.exe: CXX_EXECUTABLE_LINKER__projectAnts_Debug CMakeFiles/projectAnts.dir/main.cpp.obj CMakeFiles/projectAnts.dir/ant.cpp.obj CMakeFiles/projectAnts.dir/babysitter.cpp.obj CMakeFiles/projectAnts.dir/builder.cpp.obj CMakeFiles/projectAnts.dir/cleaner.cpp.obj CMakeFiles/projectAnts.dir/collector.cpp.obj CMakeFiles/projectAnts.dir/dead.cpp.obj CMakeFiles/projectAnts.dir/soldier.cpp.obj CMakeFiles/projectAnts.dir/stepherd.cpp.obj CMakeFiles/projectAnts.dir/anthill.cpp.obj CMakeFiles/projectAnts.dir/food.cpp.obj CMakeFiles/projectAnts.dir/resourses.cpp.obj CMakeFiles/projectAnts.dir/hay.cpp.obj CMakeFiles/projectAnts.dir/draw.cpp.obj CMakeFiles/projectAnts.dir/event_system.cpp.obj CMakeFiles/projectAnts.dir/storage.cpp.obj CMakeFiles/projectAnts.dir/baby.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-audio-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libfreetyped.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libvorbisfiled.a _deps/sfml-build/lib/libvorbisencd.a _deps/sfml-build/lib/libvorbisd.a _deps/sfml-build/lib/libFLACd.a _deps/sfml-build/lib/liboggd.a || _deps/sfml-build/lib/libFLACd.a _deps/sfml-build/lib/libfreetyped.a _deps/sfml-build/lib/liboggd.a _deps/sfml-build/lib/libsfml-audio-s-d.a _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libvorbisd.a _deps/sfml-build/lib/libvorbisencd.a _deps/sfml-build/lib/libvorbisfiled.a
   FLAGS = -g
   LINK_LIBRARIES = _deps/sfml-build/lib/libsfml-graphics-s-d.a  _deps/sfml-build/lib/libsfml-audio-s-d.a  _deps/sfml-build/lib/libsfml-window-s-d.a  -lopengl32  -lgdi32  _deps/sfml-build/lib/libfreetyped.a  _deps/sfml-build/lib/libsfml-system-s-d.a  -lwinmm  _deps/sfml-build/lib/libvorbisfiled.a  _deps/sfml-build/lib/libvorbisencd.a  _deps/sfml-build/lib/libvorbisd.a  _deps/sfml-build/lib/libFLACd.a  _deps/sfml-build/lib/liboggd.a  -lm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\projectAnts.dir

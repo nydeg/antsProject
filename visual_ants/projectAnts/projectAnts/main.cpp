@@ -14,15 +14,16 @@
 #include "builder.h"
 #include "consts.h"
 #include "anthill.h"
+#include "baby.h"
 #include "draw.h"
 #include "food.h"
 #include "hay.h"
+#include "storage.h"
 using namespace std;
 using namespace sf;
 #define SIZE_OF_TILE 40.f
 
-int main()
-{
+int main() {
     VideoMode desktopMode = VideoMode::getDesktopMode();
     const unsigned int width = 980;
     const unsigned int height = 760;
@@ -30,8 +31,22 @@ int main()
     RenderWindow window(sf::VideoMode({width, height}), L"Муравьи", sf::Style::Close | sf::Style::Titlebar );
     window.setFramerateLimit(60);
 
-    Ant ant(HEALTHY_ANT, 0,  nullptr);
+    Ant ant_collector(HEALTHY_ANT, 0,  nullptr);
+    Ant ant_collector_2(HEALTHY_ANT, 0,  nullptr);
+    Ant ant_collector_3(HEALTHY_ANT, 0,  nullptr);
+    Ant ant1(HEALTHY_ANT, 0, std::make_unique<Baby>());
+    ant1.setPosition(30.f, 520.f);
+    std::vector<std::unique_ptr<Ant>> baby_ants;
+    for (int i = 0; i < 7; ++i) {
+        auto ann = std::make_unique<Ant>(HEALTHY_ANT, 0, std::make_unique<Baby>());
+        ann->setPosition(30.f, 520.f);
+        baby_ants.push_back(std::move(ann));
+    }
+
+    const sf::FloatRect bounds({30.f, 520.f},{270.f, 180.f});
+
     Food food;
+    Storage storage({60.f, 60.f}, {100.f, 100.f}, 50, "food");
     Clock clock;
     Clock spawnClock;           // Таймер для спавна еды
 
@@ -66,6 +81,22 @@ int main()
     field_main.setTexture(&field);
     field_main.setPosition(Vector2f(10, 25));
 
+    //еда
+    Texture food1;
+    if (!food1.loadFromFile("storage_full.png")) {return 1;}
+    food1.setSmooth(true);
+    RectangleShape food1_main(Vector2f(120, 120));
+    food1_main.setTexture(&food1);
+    food1_main.setPosition(Vector2f(35, 50));
+
+    //сено
+    Texture hay1;
+    if (!hay1.loadFromFile("hay_storage_full.png")) {return 1;}
+    hay1.setSmooth(true);
+    RectangleShape hay1_main(Vector2f(180, 120));
+    hay1_main.setTexture(&hay1);
+    hay1_main.setPosition(Vector2f(150, 50));
+
     //выход с поля
     RectangleShape rectangle({120.f, 50.f});
     rectangle.setFillColor(TEXT_COLOR);
@@ -84,11 +115,27 @@ int main()
             if (event->is<Event::Closed>())
                 window.close();
         }
-        ant.update(deltaTime, food);
+
+        for (auto& ann : baby_ants) {
+            ann->doTask(bounds);
+        }
+
+        ant1.doTask(bounds);
+
         if (spawnClock.getElapsedTime().asSeconds() >= 5.f) {
             food.spawn(maze);  // Спавн еды в случайном месте
-            ant.setTarget(food.getPosition());
+            cout << food.getWeight() << endl;
+            if (!ant_collector.isCarryingFood()) {
+                ant_collector.setTarget(food.getPosition()); // Устанавливаем цель на еду
+            } else {
+                ant_collector.setTarget(storage.getPosition()); // Устанавливаем цель на склад
+            }
             spawnClock.restart();   // Сброс таймера
+        }
+        ant_collector.update(deltaTime, food);
+        if (ant_collector.isCarryingFood()) {
+            ant_collector.setTarget(storage.getPosition());  // Отправляем муравья к складу
+            ant_collector.deliverToStorage(storage, food);   // Доставляем еду на склад
         }
 
         window.clear(Color(86, 48, 33));
@@ -107,10 +154,17 @@ int main()
                 window.draw(cell);
             }
         }
+
+        storage.draw(window, "food");
+        window.draw(food1_main);
+        window.draw(hay1_main);
         window.draw(rectangle);
         window.draw(text);
         food.draw(window);
-        ant.draw(window);
+        for (auto& ann : baby_ants) {
+            ann->draw(window);
+        }
+        ant_collector.draw(window);
         window.display();
     }
 
